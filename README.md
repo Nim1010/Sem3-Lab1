@@ -6,3 +6,4 @@ These are the codes I have taken: let table = document.getElementById ("sampleTa
     if (table.rows.length > 0) {
       table.deleteRow(0);
     }
+Rest of the codes are written by me.
