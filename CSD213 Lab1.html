@@ -1,0 +1,67 @@
+﻿<!--Author: Nimesh Neupane-->
+<!--The codes on line 56 to 58 are taken from ChatGPT as reference.-->
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<table id="sampleTable" border="1"> 
+  <tr>
+    <td>Row1 Col1</td> 
+    <td>Row1 Col2</td>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table><br> 
+<input type="button" onclick="insertRowBottom()" value="Insert row">  
+<input type="button" onclick="deleteRowTop()" value="delete row">  
+</br>
+<label id="message">Message: </label>  <!-- I have created a label "Message:" at the end --> 
+</br>
+<script>
+  let totalRows = 5; // I have 5 rows at first
+ 
+  // Now I add function on Insert row which adds new row at the end of table
+  function insertRowBottom(){
+    let table = document.getElementById ("sampleTable");
+    totalRows= totalRows + 1; //Increase row by 1 on each click
+    let newRow = table.insertRow (); // This insert row at bottom
+    let Cell1 = newRow.insertCell(0); // This add first column
+    let Cell2 = newRow.insertCell(1); // This add second column
+// Now I Write the names of new cells
+    Cell1.innerHTML = "Row" + totalRows + "Col1";
+    Cell2.innerHTML = "Row" + totalRows + "Col2";
+
+  document.getElementById("message").innerHTML = "Message:"; // This will clear message when Insert Row is pressed
+    }
+  
+    // Now I add function on Remove row which removes row at the top of table
+
+  function deleteRowTop(){
+    let table = document.getElementById ("sampleTable");
+    if (table.rows.length > 0) {
+      table.deleteRow(0); // This will remove top row
+    }
+    // Now I display message if row is exactly equal to 0
+    if (table.rows.length ==0) {
+      document.getElementById ("message").innerHTML = "Message: No more rows to delete."; 
+  }}
+
+</script>
+</body>
+</html>
